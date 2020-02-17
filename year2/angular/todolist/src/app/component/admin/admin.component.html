@@ -1,0 +1,60 @@
+<button class="btn btn-success" (click)="onCreateProduct()">
+    Yeni Məhsul qeydiyyatı
+</button>
+İstifadəçi : {{username}}
+<br>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Ad
+        </th>
+        <th>
+            Qiymət
+        </th>
+        <th>
+            Şəkil
+        </th>
+<th>
+    Əməliyyatlar
+</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let p of products;let counter=index;">
+        <td >
+            {{p.id}}
+        </td>
+        <td >
+            {{p.name}}
+        </td>
+        <td >
+            {{p.price | currency:'CAD' }}
+        </td>
+        <td >
+            <img [src]="p.image" />
+        </td>
+
+       <td>
+        <button mwlConfirmationPopover
+        [popoverTitle]="popoverTitle" 
+        [popoverMessage]="popoverMessage" 
+        placement="top" 
+        (confirm)="onDelete(p,counter,true)" 
+        (cancel)="onDelete(p,counter,false)"  
+         class="btn btn-danger">
+            Sil
+        </button>
+        <button (click)="onUpdate(p,counter)" class="btn btn-primary">
+            Redaktə
+        </button>
+
+       </td>
+    </tr>
+</tbody>
+
+</table>

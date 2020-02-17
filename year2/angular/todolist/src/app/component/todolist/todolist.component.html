@@ -1,0 +1,59 @@
+ 
+<button (click)="seslendir()">Play sound </button>
+<button (click)="sesiDayandir()">fasile</button>
+<button (click)="sesiDayandir2()">dayan</button>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="todo">Task :</label>
+            <input id="todo" [(ngModel)]="todo.todo" class="form-control" />
+            <label for="day">Day :</label>
+            <input id="day" [(ngModel)]="todo.day" type="number" class="form-control" />
+            <label for="register">Register :</label>
+            <input [ngModel]="todo.register | date:'yyyy-MM-dd'" (ngModelChange)="todo.register = $event" type="date"
+                class="form-control" id="register" />
+
+            <label for="status">Status :</label>
+            <input [(ngModel)]="todo.status" type="text" class="form-control" id="status" />
+
+            <button style="margin-top: 10px;" class="btn btn-success" (click)="onSaveTodo()">Save</button><button
+                style="margin-top: 10px;" class="btn btn-secondary" (click)="onResetTodo()">Reset</button>
+           <input type="text" class="form-control" [(ngModel)]="searchText"
+           (input)="search()" />
+                <hr>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Todo</th>
+                        <th>Day</th>
+                        <th>Register</th>
+                        <th>Status</th>
+                        <th>Operations</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [ngStyle]="(t.id==todoId) && {'background-color': 'red'}"
+                        *ngFor="let t of todos;let counter=index">
+                        <td>{{t.id}}</td>
+                        <td>{{t.todo}}</td>
+                        <td>{{t.day}}</td>
+                        <td>{{t.register | date:'yyyy-MM-dd'}}</td>
+                        <td>{{t.status}}</td>
+                        <td>
+
+                            <button class="btn btn-danger" (click)="onDeleteTodo(counter)">Delete</button>
+                            <button style="margin-left: 5px;" class="btn btn-primary"
+                                (click)="onUpdateTodo(counter)">Update</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- <app-test></app-test> -->

@@ -1,0 +1,15 @@
+
+<label for="name">Product name</label>
+<input id="name" type="text" [(ngModel)]="p.name" class="form-control"/>
+
+
+<label for="price">Product price</label>
+<input id="price" type="number" [(ngModel)]="p.price" class="form-control"/>
+
+
+<label for="image">Product image</label>
+<input id="image" type="text" [(ngModel)]="p.image" class="form-control"/>
+
+<button (click)="onSave()">
+    Save
+</button>
