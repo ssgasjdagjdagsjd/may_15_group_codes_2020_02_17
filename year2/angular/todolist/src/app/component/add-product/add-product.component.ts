@@ -18,6 +18,7 @@ mode:string='';
 this.mode='add';
     }else{
       this.mode='update';
+      this.p=this.productService.selectedProduct;
     }
     console.log('mode = '+this.mode);
   }
