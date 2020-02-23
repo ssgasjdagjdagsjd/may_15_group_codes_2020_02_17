@@ -1,25 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { LoginService } from 'src/app/service/login.service';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/service/product.service';
 import { MatDialog } from '@angular/material';
 import { AddProductComponent } from '../add-product/add-product.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
 username:string='';
 products:Product[]=[];
   
-  constructor(private mat:MatDialog, private productService:ProductService, private ls:LoginService,private router:Router) { }
+
+dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
+  
+  constructor(private mat:MatDialog, public productService:ProductService, private ls:LoginService,private router:Router) { }
 
   ngOnInit() {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      processing: true
+    };
+
+
     this.username=this.ls.username;
-    this.products=this.productService.products.slice();
+   // this.products=this.productService.products.slice();
+    this.dtTrigger.next();
   }
   onCreateProduct(){
     this.productService.selectedProduct=null;
@@ -45,4 +59,9 @@ onUpdate(p:Product,counter:number){
   this.productService.selectedProduct=this.products[counter];
   let dialoqum=this.mat.open(AddProductComponent);
 }
+
+ngOnDestroy(): void {
+  this.dtTrigger.unsubscribe();
+}
+
 }

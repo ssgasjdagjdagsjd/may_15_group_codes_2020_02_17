@@ -23,6 +23,7 @@ import { MatInputModule, MatDialogModule,
   from '@angular/material';
   import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SignupComponent } from './component/signup/signup.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SignupComponent } from './component/signup/signup.component';
     SignupComponent 
   ],
   imports: [
+    DataTablesModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

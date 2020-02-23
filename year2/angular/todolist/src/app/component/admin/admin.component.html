@@ -4,7 +4,7 @@
 İstifadəçi : {{username}}
 <br>
 
-<table class="table">
+<table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
 <thead>
     <tr>
         <th>
@@ -25,7 +25,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let p of products;let counter=index;">
+    <tr *ngFor="let p of this.productService.products;let counter=index;">
         <td >
             {{p.id}}
         </td>
