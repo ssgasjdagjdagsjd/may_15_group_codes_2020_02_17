@@ -10,10 +10,16 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class AddProductComponent implements OnInit {
 p:Product=new Product();
-
+mode:string='';
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
+    if(this.productService.selectedProduct==null){
+this.mode='add';
+    }else{
+      this.mode='update';
+    }
+    console.log('mode = '+this.mode);
   }
 onSave(){
   let id=this.productService.products.length+1;

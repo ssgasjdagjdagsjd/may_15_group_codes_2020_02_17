@@ -22,6 +22,8 @@ products:Product[]=[];
     this.products=this.productService.products.slice();
   }
   onCreateProduct(){
+    this.productService.selectedProduct=null;
+
 let dialoqum=this.mat.open(AddProductComponent);
  this.productService.hadisemiz.subscribe(
    resp=>{
@@ -39,5 +41,8 @@ if(status){
 
   popoverTitle:string='Təsdiq';
  popoverMessage:string='Tələbə qeydiyyatını təsdiqləməyə əminsiniz?';
-
+onUpdate(p:Product,counter:number){
+  this.productService.selectedProduct=this.products[counter];
+  let dialoqum=this.mat.open(AddProductComponent);
+}
 }
