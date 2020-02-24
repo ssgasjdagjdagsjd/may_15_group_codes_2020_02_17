@@ -23,10 +23,19 @@ p2.name="I mac made in Apple";
 p2.price=890;
 p2.image='https://www.apple.com/newsroom/images/product/os/macos/standard/Apple-macOS-Mojave-iMac-Pro-dark-mode-screen-09242018_big.jpg.large.jpg';
 
+ this.products.push(p1,p2);
 
+for (let index = 0; index < 40; index++) {
+  let p1=new Product();
+  p1.id=this.products.length+1;
+  p1.name="Samsung g6 "+p1.id;
+  p1.price=Number.parseFloat((Math.random()*100).toFixed(2));
+  p1.image='https://mzimg.com/big/w1/fvhe63vzuw1.jpg';
+  this.products.push(p1);
+  
+}
 
-
-    this.products.push(p1,p2);
+   
     
    }
 }
