@@ -1,0 +1,43 @@
+<h2>SƏBƏT</h2>
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>
+                Şəkil
+            </th>
+            <th>
+                Ad
+            </th>
+            <th>
+                Qiymət
+            </th>
+            <th>
+                Miqdar
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let bP of basketProducts">
+
+            <td>
+                <img [src]="bP.product.image" style="width: 50px;" />
+
+            </td>
+            <td>
+                {{bP.product.name}}
+            </td>
+            <td>
+                {{bP.product.price}}
+            </td>
+<td>
+    {{bP.quantity}}
+</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<span>Ümumi qiymət: {{getTotalPrice().toFixed(2)}} </span>
+<button class="btn btn-success"> Sirafişi təsdiqlə</button>

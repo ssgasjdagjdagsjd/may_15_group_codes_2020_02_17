@@ -24,6 +24,7 @@ import { MatInputModule, MatDialogModule,
   import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SignupComponent } from './component/signup/signup.component';
 import { DataTablesModule } from 'angular-datatables';
+import { BasketComponent } from './component/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DataTablesModule } from 'angular-datatables';
     ProductsComponent,
     OrdersComponent,
     AddProductComponent,
-    SignupComponent 
+    SignupComponent,
+    BasketComponent 
   ],
   imports: [
     DataTablesModule,
@@ -56,6 +58,6 @@ import { DataTablesModule } from 'angular-datatables';
   ],
   providers: [ DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[AddProductComponent,SignupComponent]
+  entryComponents:[AddProductComponent,SignupComponent,BasketComponent]
 })
 export class AppModule { }
