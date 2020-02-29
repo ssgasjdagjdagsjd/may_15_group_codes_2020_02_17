@@ -1,25 +1,17 @@
+<div class="products_container">
 
-<div class="col" *ngFor="let p of products">
+  <div class="product_template" 
+  *ngFor="let p of products">
 
     <div class="product">
-
- 
-        
-          
-            
-            <div class="card"  >
-              <img class="card-img-top" [src]="p.image" alt="Card image"  >
-              <div class="card-body">
-                <h4 class="card-title">{{p.name}}</h4>
-                <p class="card-text">{{p.price}}</p>
-                <a href="#" class="btn btn-primary">See Profile</a>
-              </div>
-            </div>
-            
-            
-           
-
-
+      <img [src]="p.image" class="product_image" />
+      <span class="product_name">{{p.name}}</span>
+      <span class="product_price"> {{p.price | currency:'USD'}}  </span>
+      <button (click)="onToBasket(p)" 
+      class="btn btn-primary">Səbətə</button>
     </div>
 
-</div> 
+
+  </div>
+
+</div>

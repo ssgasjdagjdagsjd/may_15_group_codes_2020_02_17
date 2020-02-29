@@ -15,5 +15,7 @@ export class ProductsComponent implements OnInit {
     this.products=this.productService.products.slice();
     
   }
-
+  onToBasket(p:Product){
+    console.log(p);
+  }
 }

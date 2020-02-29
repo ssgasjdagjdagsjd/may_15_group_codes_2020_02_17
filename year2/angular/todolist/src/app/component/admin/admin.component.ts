@@ -32,7 +32,7 @@ dtOptions: DataTables.Settings = {};
 
 
     this.username=this.ls.username;
-   // this.products=this.productService.products.slice();
+    this.products=this.productService.products.slice();
     this.dtTrigger.next();
   }
   onCreateProduct(){
