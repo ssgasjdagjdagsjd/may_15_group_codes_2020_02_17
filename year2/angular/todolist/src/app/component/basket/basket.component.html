@@ -1,5 +1,8 @@
 <h2>SƏBƏT</h2>
-<table class="table table-bordered">
+<div id="products">
+
+
+<table *ngIf="bS.basketProducts.length!==0" class="table table-bordered">
 
     <thead>
         <tr>
@@ -15,12 +18,14 @@
             <th>
                 Miqdar
             </th>
+<th>
 
+</th>
         </tr>
     </thead>
 
-    <tbody>
-        <tr *ngFor="let bP of basketProducts">
+    <tbody >
+        <tr *ngFor="let bP of bS.basketProducts;let counter=index">
 
             <td>
                 <img [src]="bP.product.image" style="width: 50px;" />
@@ -35,9 +40,14 @@
 <td>
     {{bP.quantity}}
 </td>
+<td>
+    <button (click)="onDeleteProduct(counter)" class="btn btn-info"> X</button>
+</td>
         </tr>
     </tbody>
 </table>
+<h1 *ngIf="bS.basketProducts.length===0">Səbət boşdur</h1>
+</div>
 <hr>
 <span>Ümumi qiymət: {{getTotalPrice().toFixed(2)}} </span>
-<button class="btn btn-success"> Sirafişi təsdiqlə</button>
+<button *ngIf="bS.basketProducts.length!==0" class="btn btn-success"> Sirafişi təsdiqlə</button>
