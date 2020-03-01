@@ -1,17 +1,17 @@
 <div class="products_container">
-<button (click)="onOpenBasket()">Səbəti aç</button>
-  <div class="product_template" 
-  *ngFor="let p of products">
+
+  <div class="product_template" *ngFor="let p of products">
 
     <div class="product">
       <img [src]="p.image" class="product_image" />
-      <span class="product_name">{{p.name}}</span>
-      <span class="product_price"> {{p.price | currency:'USD'}}  </span>
-      <button (click)="onToBasket(p)" 
-      class="btn btn-primary">Səbətə</button>
+      <span [title]="p.name" class="product_name">{{trimText(p.name,10)}}</span>
+      <span class="product_price"> {{p.price | currency:'USD'}} </span>
+      <button (click)="onToBasket(p)" class="btn btn-primary">Səbətə</button>
     </div>
 
 
   </div>
 
 </div>
+<button *ngIf="showToBasketButton" class="btn btn-warning" id="to_basket_button" (click)="onOpenBasket()">
+  Səbəti aç <span class="badge badge-primary">{{findAllProductQuantity()}}</span></button>
