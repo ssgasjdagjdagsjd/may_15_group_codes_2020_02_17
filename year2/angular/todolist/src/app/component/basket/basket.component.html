@@ -18,6 +18,9 @@
             <th>
                 Miqdar
             </th>
+            <th>
+                Cəm
+            </th>
 <th>
 
 </th>
@@ -35,10 +38,13 @@
                 {{bP.product.name}}
             </td>
             <td>
-                {{bP.product.price}}
+                {{bP.product.price | currency:'USD' }}
             </td>
 <td>
     <input type="number" min="1" [(ngModel)]="bP.quantity" />
+</td>
+<td>
+    {{ bP.quantity*bP.product.price | currency:'USD'  }}
 </td>
 <td>
     <button (click)="onDeleteProduct(counter)" class="btn btn-info"> X</button>

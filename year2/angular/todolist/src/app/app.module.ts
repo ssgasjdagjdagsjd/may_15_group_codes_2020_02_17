@@ -25,6 +25,7 @@ import { MatInputModule, MatDialogModule,
 import { SignupComponent } from './component/signup/signup.component';
 import { DataTablesModule } from 'angular-datatables';
 import { BasketComponent } from './component/basket/basket.component';
+import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BasketComponent } from './component/basket/basket.component';
     OrdersComponent,
     AddProductComponent,
     SignupComponent,
-    BasketComponent 
+    BasketComponent,
+    OrderConfirmComponent 
   ],
   imports: [
     DataTablesModule,
