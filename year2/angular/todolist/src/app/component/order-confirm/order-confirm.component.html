@@ -1,1 +1,29 @@
-<p>order-confirm works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form (ngSubmit)="!orderConfirmForm.invalid && onConfirm()" #orderConfirmForm="ngForm">
+                <div class="form-group">
+                    <label for="customerName">Adınızı yazın</label>
+                    <input class="form-control" id="customerName" type="text" [(ngModel)]="order.customer.name" required minlength="3" maxlength="30" name="customerName" />
+                </div>
+
+                <div class="form-group">
+                    <label for="customerAddress">Ünvanınızı yazın</label>
+                    <input class="form-control" id="customerAddress" type="text" [(ngModel)]="order.customer.address" required minlength="3" maxlength="300" name="customerAddress" />
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Telefon yazın</label>
+                    <input class="form-control" id="customerPhone" type="text" [(ngModel)]="order.customer.phone" required minlength="3" maxlength="30" name="customerPhone" />
+                </div>
+
+                <div class="form-group">
+                    <label for="orderNote">Qeyd</label>
+                    <input class="form-control" id="orderNote" type="text" [(ngModel)]="order.note" maxlength="100" name="orderNote" />
+                </div>
+
+                <button class="btn btn-primary" type="submit"> Sifarişi təsdiqlə  </button>
+
+            </form>
+        </div>
+    </div>
+</div>
