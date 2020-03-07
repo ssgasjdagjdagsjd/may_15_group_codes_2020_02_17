@@ -20,12 +20,22 @@ export class ProductsComponent implements OnInit {
 
   }
   onToBasket(p: Product) {
-
+  // increment quantity by one
+   let itIsOnTheBasket:boolean=false;
+  for (let index = 0; index < this.basketService.basketProducts.length; index++) {
+    const e = this.basketService.basketProducts[index];
+    if(e.product.id==p.id){ 
+      this.basketService.basketProducts[index].quantity++;
+      itIsOnTheBasket=true;
+      break;
+    }
+  } 
+  if(!itIsOnTheBasket){
     let basketProduct: BasketProduct = new BasketProduct();
     basketProduct.quantity = 1;
     basketProduct.product = p;
     this.basketService.basketProducts.push(basketProduct);
-
+  }
     this.showToBasketButton = false;
     setTimeout(() => {
       this.showToBasketButton = true;
