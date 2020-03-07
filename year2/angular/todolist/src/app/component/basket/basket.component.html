@@ -56,4 +56,4 @@
 </div>
 <hr>
 <span>Ümumi qiymət: {{getTotalPrice().toFixed(2)}} </span>
-<button *ngIf="bS.basketProducts.length!==0" class="btn btn-success"> Sirafişi təsdiqlə</button>
+<button mat-dialog-close (click)="onToOrderConfirm()" *ngIf="bS.basketProducts.length!==0" class="btn btn-success"> Sirafişi təsdiqlə</button>

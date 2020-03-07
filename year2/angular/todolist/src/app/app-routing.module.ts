@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'products',component:ProductsComponent},
   {path:'orders',component:OrdersComponent,canActivate:[RouteGuardService]},
   {path:'add-product',component:AddProductComponent,canActivate:[RouteGuardService]},
-  {path:'order-confirm',component:OrderConfirmComponent,canActivate:[RouteGuardService]},
+  {path:'order-confirm',component:OrderConfirmComponent},
   {path:'**',component:LoginComponent}
 ];
 

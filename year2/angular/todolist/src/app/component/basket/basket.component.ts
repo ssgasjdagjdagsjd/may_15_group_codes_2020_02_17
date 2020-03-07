@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/service/basket.service';
 import { BasketProduct } from 'src/app/model/basket';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -9,7 +10,7 @@ import { BasketProduct } from 'src/app/model/basket';
 })
 export class BasketComponent implements OnInit {
 //basketProducts:BasketProduct[]=[];
-  constructor(public bS:BasketService) { }
+  constructor(public bS:BasketService,private router:Router) { }
 
   ngOnInit() {
     //this.basketProducts=this.bS.basketProducts.slice();
@@ -26,5 +27,9 @@ getTotalPrice(){
 }
 onDeleteProduct(counter:number){
   this.bS.basketProducts.splice(counter,1);
+}
+
+onToOrderConfirm(){
+  this.router.navigate(['order-confirm']);
 }
 }
