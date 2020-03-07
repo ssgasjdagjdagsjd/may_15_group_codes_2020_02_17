@@ -38,7 +38,7 @@
                 {{bP.product.price}}
             </td>
 <td>
-    {{bP.quantity}}
+    <input type="number" min="1" [(ngModel)]="bP.quantity" />
 </td>
 <td>
     <button (click)="onDeleteProduct(counter)" class="btn btn-info"> X</button>
