@@ -7,6 +7,7 @@ import { ProductsComponent } from './component/products/products.component';
 import { OrdersComponent } from './component/orders/orders.component';
 import { AddProductComponent } from './component/add-product/add-product.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'products',component:ProductsComponent},
   {path:'orders',component:OrdersComponent,canActivate:[RouteGuardService]},
   {path:'add-product',component:AddProductComponent,canActivate:[RouteGuardService]},
+  {path:'order-confirm',component:OrderConfirmComponent,canActivate:[RouteGuardService]},
   {path:'**',component:LoginComponent}
 ];
 
