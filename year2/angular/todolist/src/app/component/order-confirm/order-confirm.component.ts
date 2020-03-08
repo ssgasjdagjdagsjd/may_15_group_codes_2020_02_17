@@ -18,6 +18,6 @@ order:OrderModel=new OrderModel();
     this.order.basketProducts=this.bS.basketProducts;
     this.order.id=(this.oS.orders.length+1);
     this.oS.orders.push(this.order);
-    
+    this.bS.basketProducts=[];
   }
 }
