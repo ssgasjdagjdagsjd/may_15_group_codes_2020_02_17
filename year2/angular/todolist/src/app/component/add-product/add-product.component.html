@@ -10,6 +10,6 @@
 <label for="image">Product image</label>
 <input id="image" type="text" [(ngModel)]="p.image" class="form-control"/>
 
-<button *ngIf="mode==='add'" (click)="onSave()">
+<button class="btn btn-success" *ngIf="mode==='add'" (click)="onSave()">
     Save
 </button>
