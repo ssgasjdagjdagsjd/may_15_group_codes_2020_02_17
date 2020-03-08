@@ -11,6 +11,7 @@ export class OrdersComponent implements OnInit {
   constructor(public oS:OrderService) { }
 
   ngOnInit() {
+    this.oS.loadLastOrders();
   }
 
 }

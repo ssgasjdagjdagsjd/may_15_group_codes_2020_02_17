@@ -6,5 +6,12 @@ import { OrderModel } from '../model/order';
 })
 export class OrderService {
 orders:OrderModel[]=[];
-  constructor() { }
+  constructor() { 
+this.loadLastOrders();
+
+  }
+  loadLastOrders(){let ordersString:string=localStorage.getItem('orders');
+  let orders:OrderModel[]=JSON.parse(ordersString); 
+  this.orders=orders;
+}
 }

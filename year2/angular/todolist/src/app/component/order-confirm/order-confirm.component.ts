@@ -17,7 +17,17 @@ order:OrderModel=new OrderModel();
   onConfirm(){
     this.order.basketProducts=this.bS.basketProducts;
     this.order.id=(this.oS.orders.length+1);
-    this.oS.orders.push(this.order);
+
+    let ordersString:string=localStorage.getItem('orders');
+    if(ordersString){
+      let orders:OrderModel[]=JSON.parse(ordersString);
+      orders.push(this.order);
+      localStorage.setItem('orders',JSON.stringify(orders));
+    }else{
+      let orders:OrderModel[]=[];
+      orders.push(this.order);
+      localStorage.setItem('orders',JSON.stringify(orders));
+    } 
     this.bS.basketProducts=[];
   }
 }
