@@ -33,6 +33,12 @@
 
             </td>
             <td>
+                <ul>
+                    <li *ngFor="let bP of o.basketProducts">
+                        {{bP.product.name}} : {{bP.quantity}}
+                    </li>
+                   
+                </ul>
 
             </td>
             <td>
