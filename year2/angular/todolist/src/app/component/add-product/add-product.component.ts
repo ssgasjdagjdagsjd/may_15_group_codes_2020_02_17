@@ -24,8 +24,11 @@ this.mode='add';
   }
 onSave(){
   let id=this.productService.products.length+1;
-  this.p.id=id;
-  this.productService.products.push(this.p);
+  this.p.id=id; 
+ let productsString:string=localStorage.getItem('products'); 
+   let products:Product[]=JSON.parse(productsString);
+   products.push(this.p);
+   localStorage.setItem('products',JSON.stringify(products));
   this.productService.hadisemiz.emit(this.p);
   
 }

@@ -41,7 +41,11 @@ dtOptions: DataTables.Settings = {};
 let dialoqum=this.mat.open(AddProductComponent);
  this.productService.hadisemiz.subscribe(
    resp=>{
-     this.products.push(resp);
+    
+    let productsString:string=localStorage.getItem('products'); 
+   let products:Product[]=JSON.parse(productsString);
+this.products=products;
+this.productService.loadLastProducts();
    }
  );
   }
