@@ -24,7 +24,15 @@ user:User=new User();
     if(userAlreadyExist){
 alert('this user already exist')
     }else{
-      this.userService.users.push(this.user);
+
+      //this.userService.users.push(this.user);
+
+      let usersString:string=localStorage.getItem('users'); 
+   let users:User[]=JSON.parse(usersString);
+   users.push(this.user);
+   localStorage.setItem('users',JSON.stringify(users));
+   this.userService.loadLastUsers();
+
     }
 
 

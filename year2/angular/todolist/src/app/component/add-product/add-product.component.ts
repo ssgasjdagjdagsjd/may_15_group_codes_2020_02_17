@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsComponent } from '../products/products.component';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
+import { UserService } from 'src/app/service/user.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-add-product',
@@ -11,7 +13,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class AddProductComponent implements OnInit {
 p:Product=new Product();
 mode:string='';
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService,private lS:LoginService) { }
 
   ngOnInit() {
     if(this.productService.selectedProduct==null){
@@ -27,6 +29,7 @@ onSave(){
   this.p.id=id; 
  let productsString:string=localStorage.getItem('products'); 
    let products:Product[]=JSON.parse(productsString);
+   this.p.username=this.lS.username;
    products.push(this.p);
    localStorage.setItem('products',JSON.stringify(products));
   this.productService.hadisemiz.emit(this.p);
