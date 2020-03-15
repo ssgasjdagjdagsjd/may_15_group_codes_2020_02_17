@@ -33,6 +33,18 @@ dtOptions: DataTables.Settings = {};
 
     this.username=this.ls.username;
     this.products=this.productService.products.slice();
+
+let username:string=this.ls.username;
+
+let products:Product[]=[];
+for (let index = 0; index < this.products.length; index++) {
+  const e = this.products[index];
+  if(e.username===username){
+    products.push(e);
+  }
+}
+this.products=products;
+
     this.dtTrigger.next();
   }
   onCreateProduct(){
@@ -42,7 +54,7 @@ let dialoqum=this.mat.open(AddProductComponent);
  this.productService.hadisemiz.subscribe(
    resp=>{
     
-    let productsString:string=localStorage.getItem('products'); 
+    let productsString:string=localStorage.getItem('products');  
    let products:Product[]=JSON.parse(productsString);
 this.products=products;
 this.productService.loadLastProducts();
