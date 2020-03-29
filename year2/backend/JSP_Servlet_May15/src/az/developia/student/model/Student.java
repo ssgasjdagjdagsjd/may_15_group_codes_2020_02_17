@@ -16,4 +16,6 @@ public class Student {
 		this.surname = surname;
 	}
 
+	
+	public static String aminal="DOG";
 }

@@ -18,7 +18,7 @@
 <title>student list</title>
 </head>
 <body>
-
+<%! int myAge=27; %>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -44,5 +44,22 @@
 		</tbody>
 	</table>
 
+<hr>
+
+<%
+
+out.println(Student.aminal);
+
+%>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
