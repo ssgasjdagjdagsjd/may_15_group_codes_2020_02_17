@@ -28,7 +28,7 @@
 		</thead>
 		<tbody>
 			<%
-				ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
+				ArrayList<Student> students = (ArrayList<Student>) session.getAttribute("students");
 				for (Student s : students) {
 					
 			%>

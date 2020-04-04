@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import az.developia.student.model.Student;
 
@@ -40,11 +41,14 @@ public class StudentController extends HttpServlet {
 		s.setName(name);
 		s.setSurname(surname);
 		students.add(s);
-		request.setAttribute("students", students);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("student-list.jsp");
-		dispatcher.forward(request, response);
+		HttpSession session=request.getSession();
 		
+		session.setAttribute("students", students);
+		
+		//RequestDispatcher dispatcher=request.getRequestDispatcher("student-list.jsp");
+		//dispatcher.forward(request, response);
+		response.sendRedirect("student-list.jsp");
 		
 		
 	}
