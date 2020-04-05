@@ -1,15 +1,16 @@
 package az.developia.student;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import az.developia.student.model.Student;
 
@@ -17,8 +18,10 @@ import az.developia.student.model.Student;
 public class StudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private ArrayList<Student> students=new ArrayList<>();
+	// private ArrayList<Student> students=new ArrayList<>();
 	
+	@Resource(name="jdbc/web_student_tracker")
+	private DataSource dataSource;
 	
 	public StudentController() {
 		super();
@@ -38,20 +41,32 @@ public class StudentController extends HttpServlet {
 		String sector=request.getParameter("sector");
 		
 		
-		Student s=new Student();
+		/*Student s=new Student();
 		
 		s.setName(name);
 		s.setSurname(surname);
-		s.setSector(sector);
-		students.add(s);
+		s.setSector(sector);*/
 		
-		HttpSession session=request.getSession();
+		try {
+			Connection c=dataSource.getConnection();
+			Statement st=c.createStatement();
+			st.execute("insert into student (name,surname,sector) values ('"+name+"','"+surname+"','"+sector+"');");
+			st.close();
+			c.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		session.setAttribute("students", students);
+		//students.add(s);
+		
+		//HttpSession session=request.getSession();
+		
+		//session.setAttribute("students", students);
 		
 		//RequestDispatcher dispatcher=request.getRequestDispatcher("student-list.jsp");
 		//dispatcher.forward(request, response);
-		response.sendRedirect("student-list.jsp");
+		//response.sendRedirect("student-list.jsp");
 		
 		
 	}
