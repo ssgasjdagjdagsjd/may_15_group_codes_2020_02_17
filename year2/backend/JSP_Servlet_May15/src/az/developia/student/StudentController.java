@@ -35,11 +35,14 @@ public class StudentController extends HttpServlet {
 		
 		String name=request.getParameter("name");
 		String surname=request.getParameter("surname");
+		String sector=request.getParameter("sector");
+		
 		
 		Student s=new Student();
 		
 		s.setName(name);
 		s.setSurname(surname);
+		s.setSector(sector);
 		students.add(s);
 		
 		HttpSession session=request.getSession();

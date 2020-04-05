@@ -23,7 +23,7 @@
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Surname</th>
+				<th>Surname</th><th>Sector</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,6 +36,7 @@
 			<tr>
 				<td><%=s.getName()%></td>
 				<td><%=s.getSurname()%></td>
+					<td><%=s.getSector()%></td>
 			</tr>
 
 			<%
