@@ -1,14 +1,20 @@
 package az.developia.shopping.controller;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import az.developia.shopping.dao.ProductDAO;
 import az.developia.shopping.model.Product;
 
 @RestController
@@ -45,10 +51,14 @@ public class ProductController {
 
 		return products;
 	}
+	
+	@Autowired
+	private ProductDAO productDAO;
+	
+	
 @PostMapping
 public Product save(@RequestBody Product p){
-	System.out.println(p);
-	p.setName(p.getName().toUpperCase());
+	 productDAO.save(p);
 	return p;
 }
 }

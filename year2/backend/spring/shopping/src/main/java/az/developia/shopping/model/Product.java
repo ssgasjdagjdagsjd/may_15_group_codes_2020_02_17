@@ -1,8 +1,20 @@
 package az.developia.shopping.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+
 public class Product {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Integer id;
+	 
 private String name;
+@Column(columnDefinition="decimal(10,2)")
 private Double price;
 public Integer getId() {
 	return id;
