@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { MatDialog } from '@angular/material';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -20,46 +21,24 @@ products:Product[]=[];
 dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   
-  constructor(private mat:MatDialog, public productService:ProductService, private ls:LoginService,private router:Router) { }
+  constructor(private mat:MatDialog, public productService:ProductService, private ls:LoginService,private router:Router,private httpClient:HttpClient) { }
 
   ngOnInit() {
+    console.log('api cagirmazdan evvelki kod');
+this.httpClient.get<Product[]>('http://localhost:8085/products',{
+  headers: new HttpHeaders({ 
+    'Authorization': 'Basic ' + btoa('u1:1')
+  })
+}).subscribe( 
+resp=>{
+  this.products=resp;
+} 
+); 
+console.log('api cagirandan sonraki kod');
 
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      processing: true
-    };
-
-
-    this.username=this.ls.username;
-    this.products=this.productService.products.slice();
-
-let username:string=this.ls.username;
-
-let products:Product[]=[];
-for (let index = 0; index < this.products.length; index++) {
-  const e = this.products[index];
-  if(e.username===username){
-    products.push(e);
-  }
-}
-this.products=products;
-
-    this.dtTrigger.next();
   }
   onCreateProduct(){
-    this.productService.selectedProduct=null;
-
-let dialoqum=this.mat.open(AddProductComponent);
- this.productService.hadisemiz.subscribe(
-   resp=>{
     
-    let productsString:string=localStorage.getItem('products');  
-   let products:Product[]=JSON.parse(productsString);
-this.products=products;
-this.productService.loadLastProducts();
-   }
- );
   }
 
   onDelete(p:Product,counter:number,status:boolean){

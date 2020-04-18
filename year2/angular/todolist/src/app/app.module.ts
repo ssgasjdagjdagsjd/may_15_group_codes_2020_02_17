@@ -26,7 +26,7 @@ import { SignupComponent } from './component/signup/signup.component';
 import { DataTablesModule } from 'angular-datatables';
 import { BasketComponent } from './component/basket/basket.component';
 import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +56,8 @@ import { OrderConfirmComponent } from './component/order-confirm/order-confirm.c
   MatProgressSpinnerModule, MatButtonModule,
   ConfirmationPopoverModule.forRoot({
     confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv'
-  })
+  }),
+  HttpClientModule
   ],
   providers: [ DatePipe],
   bootstrap: [AppComponent],
