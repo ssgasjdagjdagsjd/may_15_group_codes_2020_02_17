@@ -25,6 +25,13 @@ public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerA
 		        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 	}
-	 
+	@Autowired
+    DataSource dataSource;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource);
+            
+    }
 
 }
