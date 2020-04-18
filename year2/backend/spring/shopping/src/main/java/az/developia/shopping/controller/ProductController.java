@@ -18,7 +18,7 @@ import az.developia.shopping.model.Product;
 
 @RestController
 @RequestMapping(path = "/products")
-@CrossOrigin(origins="http://localhost:5454")
+@CrossOrigin(origins="*")
 public class ProductController {
 	@Autowired
 	private ProductDAO productDAO;
