@@ -7,6 +7,9 @@ import { API_URL } from '../constants';
   providedIn: 'root'
 })
 export class UserService {
+
+  token:string='';
+
   loadLastUsers() {
     let usersString:string=localStorage.getItem('users'); 
     let users:User[]=JSON.parse(usersString);

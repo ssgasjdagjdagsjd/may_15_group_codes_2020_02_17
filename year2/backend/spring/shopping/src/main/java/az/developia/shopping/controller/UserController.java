@@ -33,4 +33,10 @@ public Boolean createUser(@RequestBody User u){
 	return userDAO.createUser(u);
 }
  
+@GetMapping(path="/validate")
+public void validate(){
+	
+}
+
+
 }

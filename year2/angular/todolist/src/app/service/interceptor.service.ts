@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor{
  
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    let username: string = 'u1';
-    let password: string = '1';
-    let basicAuthHeaderString: string = 'Basic ' + window.btoa(username + ':' + password);
-
+    
+    
+if(this.userService.token===''){}else{
     request = request.clone(
 
       {
         setHeaders: {
-          Authorization: basicAuthHeaderString
+          Authorization: this.userService.token
         }
 
 
       }
 
-    );
+    );}
     return next.handle(request);
   }
 }

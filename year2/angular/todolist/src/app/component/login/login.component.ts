@@ -3,6 +3,8 @@ import { LoginService } from 'src/app/service/login.service';
 import { MatDialog } from '@angular/material';
 import { SignupComponent } from '../signup/signup.component';
 import { UserService } from 'src/app/service/user.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API_URL } from 'src/app/constants';
 
 @Component({
   selector: 'app-login',
@@ -13,23 +15,24 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  constructor(private loginService: LoginService, private matDialog: MatDialog, private userService: UserService) { }
+  constructor(private loginService: LoginService, private matDialog: MatDialog, private userService: UserService,private http:HttpClient) { }
 
   ngOnInit() {
   }
   login() {
-    let userValidated: boolean = false;
-    for (let index = 0; index < this.userService.users.length; index++) {
-      const u = this.userService.users[index];
-      if (u.username == this.username && u.password == this.password) {
-        userValidated = true; break;
-      }
-    }
-    if (userValidated) {
-      this.loginService.username = this.username;
-    } else {
-      alert('invalid credentials');
-    }
+    
+this.http.get(`${API_URL}/users/validate`,{
+  headers:new HttpHeaders({
+    Authorization:'Basic '+window.btoa(this.username+':'+this.password)
+  })
+}).subscribe(
+  resp=>{
+    this.userService.token='Basic '+window.btoa(this.username+':'+this.password);
+    this.loginService.username = this.username;
+  },error=>{
+    alert('invalid credentials');
+  }
+);
 
   }
 
