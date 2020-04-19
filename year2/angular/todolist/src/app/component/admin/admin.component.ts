@@ -26,11 +26,7 @@ dtOptions: DataTables.Settings = {};
 
   ngOnInit() {
     console.log('api cagirmazdan evvelki kod');
-this.httpClient.get<Product[]>(`${API_URL}/products`,{
-  headers: new HttpHeaders({ 
-    'Authorization': 'Basic ' + btoa('u1:1')
-  })
-}).subscribe( 
+this.httpClient.get<Product[]>(`${API_URL}/products`).subscribe( 
 resp=>{
   this.products=resp;
 } 

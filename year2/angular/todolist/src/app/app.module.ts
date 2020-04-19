@@ -26,7 +26,8 @@ import { SignupComponent } from './component/signup/signup.component';
 import { DataTablesModule } from 'angular-datatables';
 import { BasketComponent } from './component/basket/basket.component';
 import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { InterceptorService } from './service/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,11 @@ import {HttpClientModule} from '@angular/common/http';
   }),
   HttpClientModule
   ],
-  providers: [ DatePipe],
+  providers: [ DatePipe,
+    {
+      provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
+      
+    }],
   bootstrap: [AppComponent],
   entryComponents:[AddProductComponent,SignupComponent,BasketComponent]
 })
