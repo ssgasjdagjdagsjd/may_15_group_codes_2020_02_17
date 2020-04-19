@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API_URL } from 'src/app/constants';
 
 @Component({
   selector: 'app-admin',
@@ -25,7 +26,7 @@ dtOptions: DataTables.Settings = {};
 
   ngOnInit() {
     console.log('api cagirmazdan evvelki kod');
-this.httpClient.get<Product[]>('http://localhost:8085/products',{
+this.httpClient.get<Product[]>(`${API_URL}/products`,{
   headers: new HttpHeaders({ 
     'Authorization': 'Basic ' + btoa('u1:1')
   })

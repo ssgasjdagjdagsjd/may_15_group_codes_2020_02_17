@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,6 @@ localStorage.setItem('users',JSON.stringify(users));
 
 
    createUser(u:User){
-return this.http.post<boolean>('http://localhost:8085/users',u);
+return this.http.post<boolean>(`${API_URL}/users`,u);
    }
 }
