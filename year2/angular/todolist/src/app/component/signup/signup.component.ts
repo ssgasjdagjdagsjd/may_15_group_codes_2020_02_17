@@ -14,27 +14,10 @@ user:User=new User();
   ngOnInit() {
   }
   onSignup(){
-    let userAlreadyExist:boolean=false;
-    for (let index = 0; index < this.userService.users.length; index++) {
-      const user = this.userService.users[index];
-      if(user.username==this.user.username){
-        userAlreadyExist=true; break;
+    this.userService.createUser(this.user).subscribe(
+      resp=>{
+        alert(resp);
       }
-    }
-    if(userAlreadyExist){
-alert('this user already exist')
-    }else{
-
-      //this.userService.users.push(this.user);
-
-      let usersString:string=localStorage.getItem('users'); 
-   let users:User[]=JSON.parse(usersString);
-   users.push(this.user);
-   localStorage.setItem('users',JSON.stringify(users));
-   this.userService.loadLastUsers();
-
-    }
-
-
+    );
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UserService {
   }
 users:User[]=[];
 username:string='';
-  constructor() {
+  constructor(private http:HttpClient) {
 let bestUser:User=new User();
 bestUser.username='ismayil';
 bestUser.password='1234';
@@ -27,5 +28,10 @@ localStorage.setItem('users',JSON.stringify(users));
  this.loadLastUsers();
   
 
+   }
+
+
+   createUser(u:User){
+return this.http.post<boolean>('http://localhost:8085/users',u);
    }
 }
