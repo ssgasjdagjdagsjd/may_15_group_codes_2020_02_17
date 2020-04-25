@@ -1,6 +1,7 @@
 package az.developia.shopping.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.sql.DataSource;
@@ -34,5 +35,32 @@ return result;
 		
 		
 	}
+	
+	
+	
+	
+
+	public Boolean checkUser(String username) {
+		Boolean result=false;
+try {
+	Connection c=dataSource.getConnection();
+	Statement s=c.createStatement();
+	 ResultSet rs=s.executeQuery("select * from users where username='"+username+"'");
+	 if(rs.next()){
+		 result=true;
+	 }
+	 rs.close();
+	s.close();
+	c.close();
+	
+} catch (Exception e) {
+	e.printStackTrace();
+}
+return result;
+		
+		
+	}
+	
+	
 
 }

@@ -14,9 +14,17 @@ user:User=new User();
   ngOnInit() {
   }
   onSignup(){
-    this.userService.createUser(this.user).subscribe(
+    this.userService.checkUser(this.user.username).subscribe(
       resp=>{
-        alert(resp);
+        if(resp){
+alert('exists');
+        }else{
+          this.userService.createUser(this.user).subscribe(
+            resp=>{
+              alert(resp);
+            }
+          );
+        }
       }
     );
   }

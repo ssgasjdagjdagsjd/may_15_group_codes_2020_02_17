@@ -38,4 +38,9 @@ localStorage.setItem('users',JSON.stringify(users));
    createUser(u:User){
 return this.http.post<boolean>(`${API_URL}/users`,u);
    }
+
+   checkUser(username:string){
+    return this.http.get<boolean>(`${API_URL}/users/check/${username}`);
+       }
+
 }

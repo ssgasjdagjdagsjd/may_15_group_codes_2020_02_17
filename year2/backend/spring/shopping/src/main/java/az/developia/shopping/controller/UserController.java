@@ -38,5 +38,11 @@ public void validate(){
 	
 }
 
+@GetMapping(path="/check/{username}")
+public Boolean checkUser(@PathVariable String username){
+	
+	return userDAO.checkUser(username);
+}
+ 
 
 }
