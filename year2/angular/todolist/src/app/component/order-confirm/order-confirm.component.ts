@@ -16,14 +16,8 @@ order:OrderModel=new OrderModel();
   }
   onConfirm(){
     this.order.basketProducts=this.bS.basketProducts;
-    this.order.id=(this.oS.orders.length+1);
-this.order.username=this.order.basketProducts[0].product.username;
-    let ordersString:string=localStorage.getItem('orders');
-    
-      let orders:OrderModel[]=JSON.parse(ordersString);
-      orders.push(this.order);
-      localStorage.setItem('orders',JSON.stringify(orders));
-    
+    this.order.username=this.order.basketProducts[0].product.username;
+    console.log(this.order)
     this.bS.basketProducts=[];
   }
 }
