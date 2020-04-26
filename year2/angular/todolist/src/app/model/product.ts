@@ -5,3 +5,10 @@ export class Product{
     public image:string;
     public username:string;
 }
+
+export class ImageBean{
+    public id:number;
+   
+    public image:string;
+    
+}

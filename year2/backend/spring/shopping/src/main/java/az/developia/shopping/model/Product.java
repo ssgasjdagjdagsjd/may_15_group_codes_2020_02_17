@@ -16,6 +16,7 @@ private Integer id;
 private String name;
 @Column(columnDefinition="decimal(10,2)")
 private Double price;
+private String image;
 public Integer getId() {
 	return id;
 }
@@ -37,6 +38,12 @@ public void setPrice(Double price) {
 @Override
 public String toString() {
 	return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+}
+public String getImage() {
+	return image;
+}
+public void setImage(String image) {
+	this.image = image;
 }
 
 }

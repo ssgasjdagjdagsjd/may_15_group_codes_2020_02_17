@@ -17,7 +17,7 @@ import { API_URL } from 'src/app/constants';
 export class AdminComponent implements OnInit, OnDestroy {
 username:string='';
 products:Product[]=[];
-  
+  url:string="";
 
 dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
@@ -25,6 +25,7 @@ dtOptions: DataTables.Settings = {};
   constructor(private mat:MatDialog, public productService:ProductService, private ls:LoginService,private router:Router,private httpClient:HttpClient) { }
 
   ngOnInit() {
+    this.url=API_URL+'/filedownload/files/';
     console.log('api cagirmazdan evvelki kod');
 this.httpClient.get<Product[]>(`${API_URL}/products`).subscribe( 
 resp=>{
@@ -35,7 +36,7 @@ console.log('api cagirandan sonraki kod');
 
   }
   onCreateProduct(){
-    
+    this.mat.open(AddProductComponent);
   }
 
   onDelete(p:Product,counter:number,status:boolean){

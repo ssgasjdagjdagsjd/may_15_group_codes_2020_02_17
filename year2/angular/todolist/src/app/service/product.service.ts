@@ -1,5 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Product } from '../model/product';
+import { Product, ImageBean } from '../model/product';
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class ProductService {
   products:Product[]=[];
   hadisemiz:EventEmitter<Product>=new EventEmitter();
   selectedProduct:Product=null;
-  constructor() { 
+  constructor(private http:HttpClient) { 
     this.loadLastProducts(); 
    } 
    loadLastProducts() { 
@@ -23,5 +25,15 @@ export class ProductService {
 
 
   }
+create(p:Product){
+  return this.http.post<Product>(`${API_URL}/products`,p);
+}
+
+createFile(file:File){
+ let fd:FormData=new FormData();
+fd.append('file',file);
+  return this.http.post<ImageBean>(`${API_URL}/fileupload`,fd);
+}
 
 }
+

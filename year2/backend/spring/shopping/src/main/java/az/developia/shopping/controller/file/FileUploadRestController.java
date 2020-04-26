@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import az.developia.shopping.model.ImageBean;
+
 @RestController
 @RequestMapping(FileUploadRestController.BASE_URL)
 @CrossOrigin(origins = "*")
@@ -26,17 +28,17 @@ public class FileUploadRestController {
     @ResponseStatus(HttpStatus.CREATED)
 
 
-    public String createFile(  @RequestParam(name = "file", required = false) MultipartFile file    ) {
-    	 
+    public ImageBean createFile(  @RequestParam(name = "file", required = false) MultipartFile file    ) {
+    	ImageBean bean=new ImageBean();
         String imageFileName ="fakeimage.png";    
         if(file==null){
         	
         }else{
         	imageFileName =   storageService.store(file);
         }
-       
-        
-        return imageFileName;
+        bean.setId(1);
+        bean.setImage(imageFileName);
+        return bean;
 
 
     }

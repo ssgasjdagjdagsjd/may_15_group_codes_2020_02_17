@@ -25,14 +25,24 @@ this.mode='add';
     console.log('mode = '+this.mode);
   }
 onSave(){
-  let id=this.productService.products.length+1;
-  this.p.id=id; 
- let productsString:string=localStorage.getItem('products'); 
-   let products:Product[]=JSON.parse(productsString);
-   this.p.username=this.lS.username;
-   products.push(this.p);
-   localStorage.setItem('products',JSON.stringify(products));
+  this.productService.createFile(this.imageFile).subscribe(
+    resp=>{
+      this.p.image=resp.image;
+      this.productService.create(this.p).subscribe(
+        resp=>{
+          alert(resp);
+        }
+      );
+
+    }
+  );
   this.productService.hadisemiz.emit(this.p);
   
+}
+
+imageFile:File=null;
+onImageSelected(event){
+  this.imageFile=event.target.files[0];
+
 }
 }
