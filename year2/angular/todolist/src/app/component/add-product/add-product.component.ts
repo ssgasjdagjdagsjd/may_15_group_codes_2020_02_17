@@ -28,6 +28,7 @@ onSave(){
   this.productService.createFile(this.imageFile).subscribe(
     resp=>{
       this.p.image=resp.image;
+      this.p.username=this.lS.username;
       this.productService.create(this.p).subscribe(
         resp=>{
           alert(resp);

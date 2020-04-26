@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/service/basket.service';
 import { BasketProduct } from 'src/app/model/basket';
 import { Router } from '@angular/router';
+import { API_URL } from 'src/app/constants';
 
 @Component({
   selector: 'app-basket',
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
+  url: string;
 //basketProducts:BasketProduct[]=[];
   constructor(public bS:BasketService,private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit() {this.url=API_URL+'/filedownload/files/';
     //this.basketProducts=this.bS.basketProducts.slice();
 
   }
