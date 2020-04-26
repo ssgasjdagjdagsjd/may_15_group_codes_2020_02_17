@@ -5,6 +5,7 @@ import { BasketService } from 'src/app/service/basket.service';
 import { BasketProduct } from 'src/app/model/basket';
 import { MatDialog } from '@angular/material';
 import { BasketComponent } from '../basket/basket.component';
+import { API_URL } from 'src/app/constants';
 
 @Component({
   selector: 'app-products',
@@ -13,11 +14,16 @@ import { BasketComponent } from '../basket/basket.component';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  url: string;
   constructor(private productService: ProductService, private basketService: BasketService, private matD: MatDialog) { }
 
-  ngOnInit() {
-    this.products = this.productService.products.slice();
-
+  ngOnInit() {this.url=API_URL+'/filedownload/files/';
+    //this.products = this.productService.products.slice();
+this.productService.findAll().subscribe(
+  resp=>{
+    this.products=resp;
+  }
+);
   }
   onToBasket(p: Product) {
   // increment quantity by one

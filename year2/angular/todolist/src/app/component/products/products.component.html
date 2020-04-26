@@ -3,7 +3,7 @@
   <div class="product_template" *ngFor="let p of products">
 
     <div class="product">
-      <img [src]="p.image" class="product_image" />
+      <img [src]="url+p.image" class="product_image" />
       <span [title]="p.name" class="product_name">{{trimText(p.name,10)}}</span>
       <span class="product_price"> {{p.price | currency:'USD'}} </span>
       <button (click)="onToBasket(p)" class="btn btn-primary">Səbətə</button>

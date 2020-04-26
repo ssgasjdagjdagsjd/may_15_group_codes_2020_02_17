@@ -34,6 +34,8 @@ createFile(file:File){
 fd.append('file',file);
   return this.http.post<ImageBean>(`${API_URL}/fileupload`,fd);
 }
-
+findAll(){
+  return this.http.get<Product[]>(`${API_URL}/products`);
+}
 }
 
