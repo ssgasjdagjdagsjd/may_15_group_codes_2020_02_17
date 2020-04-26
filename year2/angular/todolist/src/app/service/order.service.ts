@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { OrderModel } from '../model/order';
 import { LoginService } from './login.service';
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   orders: OrderModel[] = [];
-  constructor(private lS:LoginService) {
+  constructor(private lS:LoginService,private http:HttpClient) {
     this.loadLastOrders();
 
   }
@@ -35,5 +37,10 @@ this.orders=ordersTemp;
     }
 
 
+  }
+
+
+  addOrder(order:OrderModel){
+   return this.http.post<OrderModel>(`${API_URL}/orders/add`,order);
   }
 }

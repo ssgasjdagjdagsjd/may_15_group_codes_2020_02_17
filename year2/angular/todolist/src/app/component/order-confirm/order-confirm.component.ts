@@ -17,7 +17,13 @@ order:OrderModel=new OrderModel();
   onConfirm(){
     this.order.basketProducts=this.bS.basketProducts;
     this.order.username=this.order.basketProducts[0].product.username;
-    console.log(this.order)
+   // console.log(this.order)
+
+   this.oS.addOrder(this.order).subscribe(
+     resp=>{
+       console.log(resp)
+     }
+   );
     this.bS.basketProducts=[];
   }
 }
