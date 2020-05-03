@@ -44,7 +44,14 @@ public Instructor getInstructor() {
 public void setInstructor(Instructor instructor) {
 	this.instructor = instructor;
 }
+@Override
+public String toString() {
+	return "Course [id=" + id + ", title=" + title + "]";
+}
 
-
+public Course( ) {
+	 
+ 
+}
 
 }
