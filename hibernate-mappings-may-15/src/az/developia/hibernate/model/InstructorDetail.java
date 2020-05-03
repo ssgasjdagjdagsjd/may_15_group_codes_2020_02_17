@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +19,9 @@ private int id;
 private String youtubeChannel;
 @Column(name="hobby")
 private String hobby;
+
+@OneToOne(mappedBy="instructorDetail")
+private Instructor instructor;
 // constructors
 public InstructorDetail(String youtubeChannel, String hobby) {
 	super();
@@ -46,6 +50,10 @@ public void setHobby(String hobby) {
 	this.hobby = hobby;
 }
 
+ 
+
+ 
+
 @Override
 public String toString() {
 	return "InstructorDetail [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
@@ -53,6 +61,14 @@ public String toString() {
 
 public InstructorDetail() {
 	 
+}
+
+public Instructor getInstructor() {
+	return instructor;
+}
+
+public void setInstructor(Instructor instructor) {
+	this.instructor = instructor;
 }
 
 }

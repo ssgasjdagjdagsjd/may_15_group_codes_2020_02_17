@@ -23,8 +23,8 @@ public static void main(String[] args) {
 			 
 				session.beginTransaction();
 				// save object
-				Instructor tempInstructor = session.get(Instructor.class, 4);
-			  System.out.println(tempInstructor.getInstructorDetail());
+				InstructorDetail tempInstructorDetail = session.get(InstructorDetail.class, 3);
+			  System.out.println(tempInstructorDetail.getInstructor());
 				
 			}catch(Exception exc){ 
 				 
