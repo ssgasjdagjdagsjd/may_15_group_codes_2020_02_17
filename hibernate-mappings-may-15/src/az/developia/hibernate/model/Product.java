@@ -1,4 +1,4 @@
-package az.developia.hibernate;
+package az.developia.hibernate.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

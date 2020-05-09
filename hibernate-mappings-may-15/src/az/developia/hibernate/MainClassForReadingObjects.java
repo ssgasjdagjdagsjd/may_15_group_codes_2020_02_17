@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import az.developia.hibernate.model.Instructor;
+import az.developia.hibernate.model.Student;
 
 public class MainClassForReadingObjects {
 
