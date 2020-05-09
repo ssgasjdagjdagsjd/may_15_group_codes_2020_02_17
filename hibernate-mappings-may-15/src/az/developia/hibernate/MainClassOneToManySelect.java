@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import az.developia.hibernate.model.Course;
 import az.developia.hibernate.model.Instructor;
 import az.developia.hibernate.model.InstructorDetail;
+import az.developia.hibernate.model.Student;
 
 public class MainClassOneToManySelect {
 
