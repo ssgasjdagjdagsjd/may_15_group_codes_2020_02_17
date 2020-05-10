@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import az.developia.shopping.dao.ProductDAO;
 import az.developia.shopping.model.Product;
+import az.developia.shopping.model.SearchModel;
 
 @RestController
 @RequestMapping(path = "/products")
@@ -56,4 +57,13 @@ public void deleteById(@PathVariable(name="id") Integer id) {
 	 
 	  productDAO.deleteById(id);
 }
+
+
+@PostMapping(path="/find-partial-search")
+public List<Product> findPartial(@RequestBody SearchModel search) { 
+	return productDAO.findPartial(search.getBegin(), search.getLength(), search.getSearchKey());
+}
+
+
+
 }
