@@ -61,7 +61,9 @@ public void deleteById(@PathVariable(name="id") Integer id) {
 
 @PostMapping(path="/find-partial-search")
 public List<Product> findPartial(@RequestBody SearchModel search) { 
+	System.out.println(search.getSearchKey());
 	return productDAO.findPartial(search.getBegin(), search.getLength(), search.getSearchKey());
+	
 }
 
 
