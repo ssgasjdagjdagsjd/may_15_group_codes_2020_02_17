@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,9 +22,15 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Integer id;
 	 
+	@Length(max=20,min=3,message="mehsulun adi 3 vı 20 arasinda ola biler")
+	@NotNull
 private String name;
 @Column(columnDefinition="decimal(10,2)")
+@NotNull
+@Max(value=0,message="qiymet minimum 0 olar")
+@Min(value=1000,message="qiymet maksimum 100 oler")
 private Double price;
+
 private String image;
 private String username;
  

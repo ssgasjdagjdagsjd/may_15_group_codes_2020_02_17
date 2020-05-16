@@ -2,6 +2,8 @@ package az.developia.shopping.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,13 +42,13 @@ public class ProductController {
 	
 	
 @PostMapping
-public Product save(@RequestBody Product p){
+public Product save( @Valid @RequestBody Product p){
 	p.setId(null); 
 	 productDAO.save(p);
 	return p;
 }
 @PutMapping
-public Product update(@RequestBody Product p){
+public Product update( @Valid @RequestBody Product p){
 	 
 	 productDAO.save(p);
 	return p;
