@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/service/order.service';
 import { OrderModel } from 'src/app/model/order';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,19 +9,28 @@ import { OrderModel } from 'src/app/model/order';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
-  constructor(public oS:OrderService) { }
+  orders: OrderModel[] = [];
+  constructor(public oS:OrderService,private lS:LoginService) { }
 
   ngOnInit() {
-    this.oS.loadLastOrders();
-  }
-  calculateOrderTotalPrice(o:OrderModel):number{
-let total:number=0;
+    this.oS.findAllByUsername(this.lS.username).subscribe(
+      resp=>{
+        this.orders=resp;
+      }
+    );
 
-for (let index = 0; index < o.basketProducts.length; index++) {
-  const e = o.basketProducts[index];
-  total+=e.product.price*e.quantity;
-}
-return total;
   }
+
+
+  calculateOrderTotalPrice(o:OrderModel):number{
+    let total:number=0;
+        
+    
+    for (let index = 0; index < o.basketProducts.length; index++) {
+      const e = o.basketProducts[index];
+      total+=e.product.price*e.quantity;
+    }
+    return total;
+      }
+   
 }
