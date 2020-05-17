@@ -24,7 +24,7 @@ dtOptions: DataTables.Settings = {};
   
   constructor(private mat:MatDialog, public productService:ProductService, private ls:LoginService,private router:Router,private httpClient:HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit() {this.username=this.ls.username;
     this.url=API_URL+'/filedownload/files/';
     console.log('api cagirmazdan evvelki kod');
 this.productService.findAllByUsername(this.ls.username).subscribe(
@@ -36,6 +36,11 @@ this.productService.findAllByUsername(this.ls.username).subscribe(
 );
 console.log('api cagirandan sonraki kod');
 
+this.productService.addProductEvent.subscribe(
+  resp=>{
+    this.products.push(resp);
+  }
+);
   }
   onCreateProduct(){
     this.productService.selectedProduct=null;

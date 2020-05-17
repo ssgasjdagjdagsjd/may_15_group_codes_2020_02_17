@@ -42,10 +42,10 @@ public class ProductController {
 	
 	
 @PostMapping
-public Product save( @Valid @RequestBody Product p){
+public Integer save( @Valid @RequestBody Product p){
 	p.setId(null); 
 	 productDAO.save(p);
-	return p;
+	return p.getId();
 }
 @PutMapping
 public Product update( @Valid @RequestBody Product p){

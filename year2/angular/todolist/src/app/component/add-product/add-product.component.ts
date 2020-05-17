@@ -31,13 +31,18 @@ onSave(){
       this.p.username=this.lS.username;
       this.productService.create(this.p).subscribe(
         resp=>{
-          alert(resp);
+           this.p.id=resp;
+          this.productService.addProductEvent.emit(this.p);
+          let pString:string=JSON.stringify(this.p);
+
+          this.p=new Product();
+this.p=JSON.parse(pString);
         }
       );
 
     }
   );
-  this.productService.hadisemiz.emit(this.p);
+  
   
 }
 

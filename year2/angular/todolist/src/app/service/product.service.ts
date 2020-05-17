@@ -8,7 +8,7 @@ import { API_URL } from '../constants';
 })
 export class ProductService {
   products:Product[]=[];
-  hadisemiz:EventEmitter<Product>=new EventEmitter();
+  addProductEvent:EventEmitter<Product>=new EventEmitter();
   selectedProduct:Product=null;
   constructor(private http:HttpClient) { 
     this.loadLastProducts(); 
@@ -26,7 +26,7 @@ export class ProductService {
 
   }
 create(p:Product){
-  return this.http.post<Product>(`${API_URL}/products`,p);
+  return this.http.post<number>(`${API_URL}/products`,p);
 }
 
 createFile(file:File){
