@@ -68,6 +68,12 @@ public List<Product> findPartial(@RequestBody SearchModel search) {
 	
 }
 
+@GetMapping(path="/username/{username}")
+public List<Product> findAllByUsername(@PathVariable(name="username") String username) { 
+	 
+	return productDAO.findAllByUsername(username);
+	
+}
 
 
 }

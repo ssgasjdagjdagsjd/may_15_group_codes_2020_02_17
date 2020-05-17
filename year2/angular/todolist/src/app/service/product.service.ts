@@ -37,5 +37,11 @@ fd.append('file',file);
 findAll(){
   return this.http.get<Product[]>(`${API_URL}/products`);
 }
+
+ 
+findAllByUsername(username:string){
+  return this.http.get<Product[]>(`${API_URL}/products/username/${username}`);
+ }
+
 }
 

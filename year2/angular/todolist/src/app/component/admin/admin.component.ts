@@ -27,15 +27,18 @@ dtOptions: DataTables.Settings = {};
   ngOnInit() {
     this.url=API_URL+'/filedownload/files/';
     console.log('api cagirmazdan evvelki kod');
-this.httpClient.get<Product[]>(`${API_URL}/products`).subscribe( 
-resp=>{
-  this.products=resp;
-} 
-); 
+this.productService.findAllByUsername(this.ls.username).subscribe(
+
+  resp=>{
+    this.products=resp;
+  }
+
+);
 console.log('api cagirandan sonraki kod');
 
   }
   onCreateProduct(){
+    this.productService.selectedProduct=null;
     this.mat.open(AddProductComponent);
   }
 

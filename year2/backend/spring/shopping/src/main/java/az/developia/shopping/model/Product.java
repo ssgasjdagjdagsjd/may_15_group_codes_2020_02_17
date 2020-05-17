@@ -27,8 +27,8 @@ private Integer id;
 private String name;
 @Column(columnDefinition="decimal(10,2)")
 @NotNull
-@Max(value=0,message="qiymet minimum 0 olar")
-@Min(value=1000,message="qiymet maksimum 100 oler")
+@Max(value=1000,message="qiymet minimum 0 olar")
+@Min(value=0,message="qiymet maksimum 100 oler")
 private Double price;
 
 private String image;
