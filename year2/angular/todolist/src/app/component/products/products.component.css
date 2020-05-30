@@ -63,3 +63,10 @@
   right: 10px;
   bottom: 20px;
 }
+
+#search-input{
+  position: fixed;
+  right: 10px;
+  bottom: 60px;
+  width: 100px;
+}

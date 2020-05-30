@@ -22,5 +22,8 @@ infiniteScroll
 </div>
 
 </div>
+
 <button *ngIf="showToBasketButton" class="btn btn-warning" id="to_basket_button" (click)="onOpenBasket()">
   Səbəti aç <span class="badge badge-primary">{{findAllProductQuantity()}}</span></button>
+
+  <input (input)="onSearch($event)" type="text" id="search-input" class="form-control">

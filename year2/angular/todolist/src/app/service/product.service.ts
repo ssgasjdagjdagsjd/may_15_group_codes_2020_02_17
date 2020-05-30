@@ -50,5 +50,15 @@ findAllByUsername(username:string){
   return this.http.post<Product[]>(`${API_URL}/products/find-partial-search`,sm);
 }
 
+
+findPartialSearch(begin:number,length:number,search:string){
+  let sm:SearchModel=new  SearchModel();
+  sm.begin=begin;
+  sm.length=length;
+  sm.searchKey=search;
+ return this.http.post<Product[]>(`${API_URL}/products/find-partial-search`,sm);
+}
+
+
 }
 

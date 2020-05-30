@@ -81,7 +81,7 @@ this.productService.findPartial(this.begin,this.length).subscribe(
 
   onScroll(){
     this.begin+=15;
-     this.productService.findPartial(this.begin,this.length).subscribe(
+     this.productService.findPartialSearch(this.begin,this.length,this.searchText).subscribe(
 
       resp=>{
         this.products.push(...resp);
@@ -89,4 +89,18 @@ this.productService.findPartial(this.begin,this.length).subscribe(
      );
 
   }
+
+  searchText:string='';
+  onSearch(event){
+    let searchText:string=event.target.value;
+    this.searchText=searchText;
+    //console.log(searchText);
+    this.begin=0;
+    this.productService.findPartialSearch(this.begin,this.length,searchText).subscribe(
+      resp=>{
+        this.products=resp;
+      }
+    );
+  }
+
 }
