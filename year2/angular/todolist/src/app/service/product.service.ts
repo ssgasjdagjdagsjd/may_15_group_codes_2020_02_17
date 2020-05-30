@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Product, ImageBean } from '../model/product';
+import { Product, ImageBean, SearchModel } from '../model/product';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../constants';
 
@@ -42,6 +42,13 @@ findAll(){
 findAllByUsername(username:string){
   return this.http.get<Product[]>(`${API_URL}/products/username/${username}`);
  }
+ findPartial(begin:number,length:number){
+   let sm:SearchModel=new  SearchModel();
+   sm.begin=begin;
+   sm.length=length;
+   sm.searchKey='';
+  return this.http.post<Product[]>(`${API_URL}/products/find-partial-search`,sm);
+}
 
 }
 

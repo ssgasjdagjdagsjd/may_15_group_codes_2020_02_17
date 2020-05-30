@@ -12,3 +12,10 @@ export class ImageBean{
     public image:string;
     
 }
+
+  export class SearchModel {
+        begin:number;
+        length:number;
+        searchKey:string;
+    
+    }

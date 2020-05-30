@@ -11,6 +11,15 @@
 
 
   </div>
+  
+<span style="display: block">son</span>
+<div
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="1000"
+(scrolled)="onScroll()"
+>
+</div>
 
 </div>
 <button *ngIf="showToBasketButton" class="btn btn-warning" id="to_basket_button" (click)="onOpenBasket()">

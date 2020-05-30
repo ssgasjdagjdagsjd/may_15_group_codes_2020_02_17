@@ -28,6 +28,7 @@ import { BasketComponent } from './component/basket/basket.component';
 import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { InterceptorService } from './service/interceptor.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,7 @@ import { InterceptorService } from './service/interceptor.service';
   ConfirmationPopoverModule.forRoot({
     confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv'
   }),
-  HttpClientModule
+  HttpClientModule,InfiniteScrollModule
   ],
   providers: [ DatePipe,
     {

@@ -15,11 +15,13 @@ import { API_URL } from 'src/app/constants';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
   url: string;
+  begin:number=0;
+  length:number=15;
   constructor(private productService: ProductService, private basketService: BasketService, private matD: MatDialog) { }
 
   ngOnInit() {this.url=API_URL+'/filedownload/files/';
     //this.products = this.productService.products.slice();
-this.productService.findAll().subscribe(
+this.productService.findPartial(this.begin,this.length).subscribe(
   resp=>{
     this.products=resp;
   }
@@ -74,5 +76,17 @@ this.productService.findAll().subscribe(
     }
 
     return count;
+  }
+
+
+  onScroll(){
+    this.begin+=15;
+     this.productService.findPartial(this.begin,this.length).subscribe(
+
+      resp=>{
+        this.products.push(...resp);
+      }
+     );
+
   }
 }

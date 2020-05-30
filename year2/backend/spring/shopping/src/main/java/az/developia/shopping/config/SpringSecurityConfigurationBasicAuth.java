@@ -24,7 +24,8 @@ public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerA
 		antMatchers(HttpMethod.POST, "/users").permitAll().
 		antMatchers(HttpMethod.GET, "/users/check/**").permitAll().
 		antMatchers(HttpMethod.GET, "/filedownload/files/**").permitAll().
-		antMatchers(HttpMethod.GET, "/products").permitAll()
+		antMatchers(HttpMethod.GET, "/products").permitAll().
+		antMatchers(HttpMethod.POST, "/products/find-partial-search").permitAll()
 		.anyRequest().authenticated().and()
 
 				.httpBasic().and().sessionManagement()
