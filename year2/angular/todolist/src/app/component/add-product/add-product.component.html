@@ -1,15 +1,24 @@
 
-<label for="name">Product name</label>
-<input id="name" type="text" [(ngModel)]="p.name" class="form-control"/>
 
-
-<label for="price">Product price</label>
-<input id="price" type="number" [(ngModel)]="p.price" class="form-control"/>
-
-
-<label for="image">Product image</label>
-<input id="image" type="file" (change)="onImageSelected($event)"  class="form-control"/>
-
-<button class="btn btn-success" *ngIf="mode==='add'" (click)="onSave()">
-    Save
-</button>
+  <form (ngSubmit)="!addProductForm.invalid && onSave()" #addProductForm="ngForm">
+    <label for="name">Product name</label>
+    <input id="name" type="text" [(ngModel)]="p.name" class="form-control"
+    required minlength="2" maxlength="30" name="productName"
+    />
+    
+    
+    <label for="price">Product price</label>
+    <input id="price" type="number" [(ngModel)]="p.price" class="form-control"
+     min="0" max="1000" maxlength="4" required name="productPrice"
+     #price="ngModel"
+    />
+    
+    
+    <label for="image">Product image</label>
+    <input id="image" type="file" (change)="onImageSelected($event)"  class="form-control"/>
+    
+    <button type="submit"  class="btn btn-success" *ngIf="mode==='add'"  >
+        Save
+    </button>
+    
+  </form>

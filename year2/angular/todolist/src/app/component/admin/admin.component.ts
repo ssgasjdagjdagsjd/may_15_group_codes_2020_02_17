@@ -49,8 +49,14 @@ this.productService.addProductEvent.subscribe(
 
   onDelete(p:Product,counter:number,status:boolean){
 if(status){
-  this.products.splice(counter,1);
-
+  
+this.productService.deleteById(p.id).subscribe(
+  resp=>{
+    this.products.splice(counter,1);
+  },error=>{
+    alert('Məhsul silinmədi');
+  }
+);
 }
   }
 
