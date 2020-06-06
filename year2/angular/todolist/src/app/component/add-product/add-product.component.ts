@@ -20,7 +20,13 @@ mode:string='';
 this.mode='add';
     }else{
       this.mode='update';
-      this.p=this.productService.selectedProduct;
+    this.productService.findById(this.productService.selectedProduct.id)
+    .subscribe
+    (
+      resp=>{
+        this.p=resp;
+      }
+    );
     }
     console.log('mode = '+this.mode);
   }
@@ -29,16 +35,24 @@ onSave(){
     resp=>{
       this.p.image=resp.image;
       this.p.username=this.lS.username;
-      this.productService.create(this.p).subscribe(
+      if(this.mode==='add'){
+        this.productService.create(this.p).subscribe(
+          resp=>{
+             this.p.id=resp;
+            this.productService.addProductEvent.emit(this.p);
+            let pString:string=JSON.stringify(this.p);
+  
+            this.p=new Product();
+  this.p=JSON.parse(pString);
+          }
+        );
+      }else{ this.productService.update(this.p).subscribe(
         resp=>{
-           this.p.id=resp;
-          this.productService.addProductEvent.emit(this.p);
-          let pString:string=JSON.stringify(this.p);
-
-          this.p=new Product();
-this.p=JSON.parse(pString);
+           
+         
         }
-      );
+      );}
+     
 
     }
   );

@@ -62,5 +62,19 @@ findPartialSearch(begin:number,length:number,search:string){
 deleteById(id:number){
   return this.http.delete(`${API_URL}/products/${id}`);
 }
+
+
+findById(id:number){
+  return this.http.get<Product>(`${API_URL}/products/${id}`);
+
+}
+
+
+update(p:Product){
+  return this.http.put(`${API_URL}/products`,p);
+}
+
+
+
 }
 
