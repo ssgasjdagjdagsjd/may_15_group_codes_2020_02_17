@@ -30,6 +30,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { InterceptorService } from './service/interceptor.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ChartExampleComponent } from './component/chart-example/chart-example.component';
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,7 @@ import { ChartExampleComponent } from './component/chart-example/chart-example.c
   ConfirmationPopoverModule.forRoot({
     confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv'
   }),
-  HttpClientModule,InfiniteScrollModule
+  HttpClientModule,InfiniteScrollModule,ChartsModule
   ],
   providers: [ DatePipe,
     {
