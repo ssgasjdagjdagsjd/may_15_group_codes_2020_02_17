@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import az.developia.shopping.dao.ProductDAO;
 import az.developia.shopping.model.Product;
+import az.developia.shopping.model.ProductNotFoundException;
 import az.developia.shopping.model.SearchModel;
 
 @RestController
@@ -30,7 +31,11 @@ public class ProductController {
 	
 	@GetMapping(path = "/{id}")  
 	public Product getOneProduct(@PathVariable(name="id") Integer id) {
-		 
+		boolean found=false; 
+		found=productDAO.findById(id).isPresent();
+		if(!found){
+			throw new ProductNotFoundException("Mehsul tapılmadı. id = "+id);
+		}
 		return productDAO.findById(id).get();
 	}
 
