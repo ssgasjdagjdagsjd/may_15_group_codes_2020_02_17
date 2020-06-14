@@ -29,6 +29,7 @@ import { OrderConfirmComponent } from './component/order-confirm/order-confirm.c
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { InterceptorService } from './service/interceptor.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ChartExampleComponent } from './component/chart-example/chart-example.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AddProductComponent,
     SignupComponent,
     BasketComponent,
-    OrderConfirmComponent 
+    OrderConfirmComponent,
+    ChartExampleComponent 
   ],
   imports: [
     DataTablesModule,
