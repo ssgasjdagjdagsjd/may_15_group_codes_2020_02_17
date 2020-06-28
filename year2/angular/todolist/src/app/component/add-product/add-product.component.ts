@@ -13,6 +13,11 @@ import { LoginService } from 'src/app/service/login.service';
 export class AddProductComponent implements OnInit {
 p:Product=new Product();
 mode:string='';
+
+category:string='';
+
+categories:string[]=['c1','c2','c3'];
+
   constructor(private productService:ProductService,private lS:LoginService) { }
 
   ngOnInit() {
@@ -30,7 +35,7 @@ this.mode='add';
     }
     console.log('mode = '+this.mode);
   }
-onSave(){
+onSave(){ alert(this.category)
   this.productService.createFile(this.imageFile).subscribe(
     resp=>{
       this.p.image=resp.image;
