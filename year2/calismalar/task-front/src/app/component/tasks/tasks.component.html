@@ -1,0 +1,38 @@
+<button (click)="onAddTask()">Add task</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>  <th>
+                Task
+            </th>  <th>
+                Day
+            </th>  <th>
+                Register
+            </th> <th>
+                Emeliyatlar
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let t of tasks">
+            <td>
+                {{t.id}}
+            </td><td>
+                {{t.task}}
+            </td><td>
+                {{t.day}}
+            </td><td>
+                {{t.register | date:'yyyy-MM-dd'}}
+            </td>
+
+            <td>
+                <button (click)="delete(t)">
+                    sil
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
