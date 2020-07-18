@@ -12,8 +12,15 @@ export class TaskService {
 
   findAll(){
     return this.http.get<Task[]> (`${API_URL}/tasks`);
-  }add(task:Task){
+  }
+
+  add(task:Task){
     return this.http.post<number> (`${API_URL}/tasks`,task);
+  }
+
+
+  update(task:Task){
+    return this.http.put  (`${API_URL}/tasks`,task);
   }
 
 
@@ -22,5 +29,7 @@ export class TaskService {
     return this.http.delete  (`${API_URL}/tasks/${id}` );
   }
 
-
+  findById(id:number){
+    return this.http.get<Task> (`${API_URL}/tasks/${id}`);
+  }
 }

@@ -5,3 +5,10 @@ export class Task{
     public day:number;
     
 }
+
+
+export class ModeModel{
+  public mode:string;
+    public taskId:number;
+    
+}

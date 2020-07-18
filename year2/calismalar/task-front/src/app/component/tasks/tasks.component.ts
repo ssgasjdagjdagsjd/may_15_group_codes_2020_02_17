@@ -24,7 +24,11 @@ tasks:Task[]=[];
     );
   }
   onAddTask(){
-    let addDialog= this.matDialog.open(AddTaskComponent);
+    let addDialog= this.matDialog.open(AddTaskComponent, {
+    
+       
+      data: {mode: 'add'}
+    });
     addDialog.afterClosed().subscribe(
       resp=>{
         this.loadTasks();
@@ -35,12 +39,27 @@ tasks:Task[]=[];
   delete(task:Task){
     this.taskS.delete(task.id).subscribe(
       resp=>{
-        this.taskS.findAll().subscribe(
-          resp=>{
-            this.tasks=resp;
-          }
-        );
+      this.loadTasks();
       }
     );
   }
+
+
+
+  update(task:Task){
+    let updateDialog= this.matDialog.open(AddTaskComponent, {
+    
+     
+      data: {mode: 'update',taskId:task.id}
+    });
+    updateDialog.afterClosed().subscribe(
+      resp=>{
+        this.loadTasks();
+      }
+    );
+  }
+
+
+
+
 }

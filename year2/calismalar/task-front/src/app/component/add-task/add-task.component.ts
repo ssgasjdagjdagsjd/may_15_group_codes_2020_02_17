@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { TaskService } from 'src/app/service/task.service';
-import { Task } from 'src/app/model/models';
+import { Task, ModeModel } from 'src/app/model/models';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-add-task',
@@ -10,9 +11,17 @@ import { Task } from 'src/app/model/models';
 export class AddTaskComponent implements OnInit {
 task:Task=new Task();
 
-  constructor(private taskService:TaskService) { }
-
+  constructor(private taskService:TaskService,@Inject(MAT_DIALOG_DATA) public data: ModeModel) { }
+mode:string='add';
   ngOnInit() {
+this.mode=this.data.mode;
+if(this.mode=='update'){
+  this.taskService.findById(this.data.taskId).subscribe(
+    resp=>{
+      this.task=resp;
+    }
+  );
+}
   }
 
 onAddTask(){
@@ -24,12 +33,18 @@ onAddTask(){
     this.task.day=0;
     
   }
-
-this.taskService.add(this.task).subscribe(
+if(this.mode=='add'){this.taskService.add(this.task).subscribe(
   resp=>{
     alert(resp)
   }
-);
+);}else{
+  this.taskService.update(this.task).subscribe(
+    resp=>{
+      
+    }
+  );
+}
+
 }
 getDayValid(day:number){
   let result:boolean=false;
