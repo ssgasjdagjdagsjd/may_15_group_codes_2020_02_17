@@ -1,11 +1,11 @@
  
-<form #taskForm="ngForm" (ngSubmit)="!taskForm.invalid && onAddTask()"  >
+<form   #taskForm="ngForm" (ngSubmit)="!taskForm.invalid && onAddTask()"  >
 
 
     <div class="form-group">
         <label for="taskName">Task Name:</label>
         <input type="text" [(ngModel)]="task.task" class="form-control" id="taskName" placeholder="Enter Task Name"
-         name="taskName" required minlength="2"> 
+         name="taskName" required minlength="2" maxlength="200"> 
         <div class="valid-feedback">Doğrudur</div>
         <div class="invalid-feedback">Düz yazın</div>
       </div>
@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label for="taskDay">Task Day:</label>
-        <input type="number" [(ngModel)]="task.day" class="form-control"
+        <input  type="number" (input)="taskDayChanged(task.day)"  min="0" max="100" [(ngModel)]="task.day" class="form-control"
          id="taskDay" placeholder="Enter Task day"
          name="taskDay" required  > 
         <div class="valid-feedback">Doğrudur</div>
