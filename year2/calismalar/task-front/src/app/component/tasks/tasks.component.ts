@@ -14,6 +14,9 @@ tasks:Task[]=[];
   constructor(private taskS:TaskService,private matDialog:MatDialog) { }
 
   ngOnInit() {
+   this.loadTasks();
+  }
+  loadTasks() {
     this.taskS.findAll().subscribe(
       resp=>{
         this.tasks=resp;
@@ -21,7 +24,12 @@ tasks:Task[]=[];
     );
   }
   onAddTask(){
-    this.matDialog.open(AddTaskComponent);
+    let addDialog= this.matDialog.open(AddTaskComponent);
+    addDialog.afterClosed().subscribe(
+      resp=>{
+        this.loadTasks();
+      }
+    );
   }
 
   delete(task:Task){

@@ -2,5 +2,5 @@ Task : <input [(ngModel)]="task.task"><br>
 Register : <input [ngModel]="task.register | date:'yyyy-MM-dd'"
  (ngModelChange)="task.register = $event"
     type="date"><br>
-Day : <input type="number" [ngModel]="task.day"   ><br>
+Day : <input type="number" [(ngModel)]="task.day"   ><br>
 <button (click)="onAddTask()">Add task</button>
