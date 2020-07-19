@@ -25,7 +25,9 @@ if(this.mode=='update'){
   }
 
 onAddTask(){
-
+  if(confirm("Qeydiyyat etməyə əminsiniz?")) {
+    
+   
   if(this.task.day>100){
     this.task.day=100;
 
@@ -44,7 +46,7 @@ if(this.mode=='add'){this.taskService.add(this.task).subscribe(
     }
   );
 }
-
+  }
 }
 getDayValid(day:number){
   let result:boolean=false;
