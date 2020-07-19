@@ -29,9 +29,20 @@
             </td>
 
             <td>
-                <button class="btn btn-danger" (click)="delete(t)">
+                <button 
+                mwlConfirmationPopover
+[popoverTitle]="popoverTitle" 
+[popoverMessage]="popoverMessage" 
+placement="top" 
+(confirm)="delete(t,true)" 
+(cancel)="delete(t,false)" 
+
+class="btn btn-danger"  >
                     sil
-                </button> <button class="btn btn-warning" (click)="update(t)">
+                </button> 
+                
+                
+                <button class="btn btn-warning" (click)="update(t)">
                     update
                 </button>
             </td>

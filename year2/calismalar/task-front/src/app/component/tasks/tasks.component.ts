@@ -11,6 +11,11 @@ import { AddTaskComponent } from '../add-task/add-task.component';
 })
 export class TasksComponent implements OnInit {
 tasks:Task[]=[];
+popoverTitle:string='Təsdiq';
+popoverMessage:string='Tapşırığı silməyə əminsiniz?';
+
+
+
   constructor(private taskS:TaskService,private matDialog:MatDialog) { }
 
   ngOnInit() {
@@ -36,12 +41,15 @@ tasks:Task[]=[];
     );
   }
 
-  delete(task:Task){
-    this.taskS.delete(task.id).subscribe(
+  delete(task:Task,status:boolean){
+    if(status){
+       this.taskS.delete(task.id).subscribe(
       resp=>{
       this.loadTasks();
       }
     );
+    }
+   
   }
 
 
