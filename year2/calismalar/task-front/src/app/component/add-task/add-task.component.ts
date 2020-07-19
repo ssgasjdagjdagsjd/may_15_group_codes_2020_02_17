@@ -40,7 +40,7 @@ if(this.mode=='add'){this.taskService.add(this.task).subscribe(
 );}else{
   this.taskService.update(this.task).subscribe(
     resp=>{
-      
+      alert('ugurlu redakte');
     }
   );
 }
