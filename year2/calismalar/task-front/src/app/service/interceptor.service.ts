@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpInterceptor } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,23 +8,20 @@ import { HttpRequest, HttpHandler, HttpInterceptor } from '@angular/common/http'
 export class  InterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    let username: string = 'u1';
-    let password: string = '1';
-    let basicAuthHeaderString: string = 'Basic ' + window.btoa(username + ':' + password);
-
-    request = request.clone(
-
-      {
-        setHeaders: {
-          Authorization: basicAuthHeaderString
+    if(this.userService.token===''){}else{
+      request = request.clone(
+  
+        {
+          setHeaders: {
+            Authorization: this.userService.token
+          }
+  
+  
         }
-
-
-      }
-
-    );
-    return next.handle(request);
+  
+      );}
+      return next.handle(request);
   }
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 }
