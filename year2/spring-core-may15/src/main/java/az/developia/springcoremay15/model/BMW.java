@@ -11,10 +11,41 @@ import org.springframework.stereotype.Component;
 @Component
 public class BMW implements Car {
 
+	private int year;
+	private String color;
 	
 	
-	
-	 @Autowired
+	 public int getYear() {
+		return year;
+	}
+
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+	public Benzine getBenzine() {
+		return benzine;
+	}
+
+
+	public void setBenzine(Benzine benzine) {
+		this.benzine = benzine;
+	}
+
+
+	@Autowired
 	 @Qualifier("benzin95")
 	private Benzine benzine;
 	
@@ -41,7 +72,15 @@ public class BMW implements Car {
 		System.out.println("BMW sinifinden yaranmis onyekt silindi");
 		
 	}
-	
+
+
+	@Override
+	public String toString() {
+		return "BMW [year=" + year + ", color=" + color + ", benzine=" + benzine + "]";
+	}
+
+
+	 
 	
 	
 	

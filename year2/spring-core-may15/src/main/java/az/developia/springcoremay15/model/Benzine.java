@@ -4,5 +4,8 @@ public interface Benzine {
 
 	public void firing();
 	
+	public void setColor(String color) ;
+	public String getColor();
+	
 	
 }

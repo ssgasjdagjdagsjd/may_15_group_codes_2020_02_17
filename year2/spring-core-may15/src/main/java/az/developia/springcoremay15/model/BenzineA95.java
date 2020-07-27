@@ -8,6 +8,13 @@ import org.springframework.stereotype.Component;
 @Qualifier("benzin95")
 public class BenzineA95 implements Benzine{
 
+	private String color;
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	@Override
 	public void firing() {
 		 System.out.println("i am firing 95 degree");

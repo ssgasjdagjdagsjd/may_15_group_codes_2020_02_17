@@ -11,11 +11,11 @@ import az.developia.springcoremay15.model.*;
 
 @SpringBootApplication
 public class SpringCoreMay15Application {
-
+	public static ApplicationContext appContext;
 	public static void main(String[] args) {
 
 		ApplicationContext appContext = SpringApplication.run(SpringCoreMay15Application.class, args);
-
+		SpringCoreMay15Application.appContext=appContext;
 		// System.out.println(appContext.containsBean("BMW"));
 		BMW myBMW = appContext.getBean(BMW.class);
 		myBMW.driving();
@@ -51,6 +51,17 @@ public class SpringCoreMay15Application {
 		int index = r.nextInt(benzinler.length);
 myMercedes4.setBenzine(benzinler[index]);
 myMercedes4.driving();
+
+
+// print all registered spring beans
+
+String[] beans=appContext.getBeanDefinitionNames();
+
+for (String bean : beans) {
+//	System.out.println(bean);
+}
+
+
 	}
 
 }
