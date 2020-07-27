@@ -15,6 +15,7 @@ public class BMW implements Car {
 	
 	
 	 @Autowired
+	 @Qualifier("benzin95")
 	private Benzine benzine;
 	
 	 

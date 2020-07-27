@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component 
- @Primary
+ @Qualifier("benzin90")
 public class BenzineA90 implements Benzine {
 
 	
