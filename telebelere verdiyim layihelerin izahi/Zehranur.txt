@@ -1,0 +1,47 @@
+1. Hesab yaratmaq. Bu zaman özünə hesab açmaq istəyən istifadəçi, adını, istifadəçi adını, şifrəsini yazıb
+qeydiyyat olur proqramda.
+
+2. Hesabına daxil olur. Bu zaman məhsullarının siyahısı açılır. Bu siyahının CRUD-unu yazmaq lazımdır.
+
+3. 2-ci pəncərə olaraq məhsulların satış pəncərəsi olur. İstifadəçi bu pəncərədə məhsulları
+bar kodları vasitəsilə satış edə bilməlidir. Bu zaman satılan məhsulun miqdarını daxil edə bilməlidir.
+
+4. 3-cü menyuda istifadəçinin satdığı məhsulların siyahısı olmalıdır. Burada tarix aralığı ilə
+filtir edib baxmaq olmalıdır siyahıya.
+
+gelen derse kimi addimlar
+1. hesab yaratmaq (market admini ucun)
+hesab yaratmaq zamani qeydiyyat olunacaq parametrler
+-Adminin adi
+-adminin istifadeci adi
+-adminin giris sifresi
+-adminin magazasinin adi
+-adminin magazasinin unvani
+-adminin telefonu
+admin hesab yaratdiqdan sonra
+oz magazasi ucun kassir qeydiyyati ede bilmelidir
+
+2020-06-28 13 shop project steps
+1. ozünə hesab yaradan satıcı admin, hesabına girməlidir.
+2. hesabına daxil olan admin bu menyuları görməlidir.
+1.1 admin
+1.2 kassirlər
+1.3 hesabat pəncərəsi
+admin pəncərəsində ediləcək addımlar::::::::::::
+1. yeni məhsul qeydiyyatı düyməsi düzəltmək
+2. düyməyə basıldığı zaman yeni məhsul qeydiyyatı pəncərəsi açmaq
+3. açılan pəncərədə məhsul məlumatlarının doldurulması, və validation qoymaq
+4. qeydiyyat edilən zaman məhsulun bazaya yazılması (qeyd : məhsulda şəkildə olmalıdır)
+2020-06-30 tarixi üçün addımlar
+1. main object all veb services - yəni Product model sinifi üçün bütün lazım olan veb servislerin qurulmasi. 
+ 
+findByİd, FindAll, deleteById, findByUsername, findPartial, findPartialSearch, add post, update put
+2. security config-   bacis security,  jdbc security config
+bazada olan security cedvellerini qurmaq
+3. rest client vasitesile butun Product servislerini test etmek
+2020-07-02 gününə kimi ediləcək addımlar
+1. admin pəncərəsinin digər addımlarını etmək
+yəni mövcud məhsulların siyahısı , partial loading istifadə etmək vacibdir
+
+2020-07-03 gününə kimi ediləcək addımlar
+1. məhsulun silinmədi və redaktəsi addımlarını etmək

@@ -1,0 +1,29 @@
+balance manager layihesi ucun gelen derse kimi edilecek addimlar
+1. signup   2. login
+
+2020-06-28 13 addimlari
+1. backend config, swagger config,
+2. main object model, dao, conroller
+3. main object all services
+findAll, findById, findByUsername, add, update, findFilter
+IncomeCategory all services
+All Income services
+
+2020-06-29 üçün addımlar:::::::::::::
+1. eyni income da olduğu kimi expence üçün də versisləri yazmaq
+2. Expence category veb servisləri yazmqq
+2020-06-30 addımları:::::::::::
+1. Açılan admin pəncərəsində lazım olan front addımları etmək.  front-da income category qeydiyyatı və siyahısa görünməsi
+2020-07-1 addımları:::::::::::
+1. income qeydiyyatı addımını etmək
+2. income qeydiyyatı üçün pəncərəni qurmaq
+3. validationları təyin etmək
+3. qeydiyyat zamanı məlumatları veb servis ilə bazaya yazmaq
+2020-07-2 addımları::::::::::   
+1. income report addımlarını etmək
+2. income report pəncərəsini açmaq üçün düymə qoymaq və basıldığında yeni pəncərə açmaq və bu pəncərədə income hesabatını görmək
+3. hesabatda tarix aralığı seçimi olamlıdır
+4. hesabatda infinite scrol istifadə olunmalıdır
+2020-07-3 addımları::::::::::   
+1. income qeydiyyatı zaman ümumi balansın artırılması addımı
+2. income üçün bütün addımları excepnce üçün etmək

@@ -1,0 +1,33 @@
+proyekt ucun gelen derse kimi addimlar
+1. signup addimini etmek
+bu zaman bu parameteleri qeydiyyat olunsun
+1. istifadecinin adi
+2. username
+3. parol
+
+2020-06-28 13 ucun todolist ucun edilecek addimlarin
+1. main object all veb services - yəni Task model sinifi üçün bütün lazım olan veb servislerin qurulmasi. 
+TaskController - TaskDAO - Task model sinif
+findByİd, FindAll, deleteById, findByUsername, findPartial, findPartialSearch, add post, update put
+2. security config-   bacis security,  jdbc security config
+bazada olan security cedvellerini qurmaq
+3. rest client vasitesile butun Task servislerini test etmek
+2020-06-29 üçün addımların:::::::::::::
+1. TaskCategory modelini qurmaq
+2. TaskCategoryController qurmaq və daxilində bütün servislərini yazmaq.   post, put, delete, findByİd, findByUsername
+3. TaskCategoryDAO yaqmaq və daxilində query metoları yazmaq və əgər ehtiyac olarsa native query ləridə yazmaq
+2020-06-30 üçün addımların:::::::::::::
+1. front enddə menyuları qurmaq
+2. front-da signup və login addınlarını etmək
+2020-07-1 üçün addımların:::::::::::::
+1. İstifadəçi pəncərəsini qurmaq
+2. yeni task qeydiyyatı düyməsi qurmaq və bu düyməyə basıldığında Task qeydiyyatı pəncərəsinin açılması
+3. Task qeydiyyatı pəncərəsinin qurulması
+4. Task məlumatlarına validation qoymaq
+5. Pəncərəni doldurduqdan sonra qeydiyyat düyməsinə basildığında Task məlumatlarının veb servisə göndərilməsi və qeydiyyatı
+2020-07-2 üçün addımların:::::::::::::
+1. Task Category qeydiyyatı addımı, bu addımı etdikdən sonra select elementində kateqoriyaların görünməsi
+2. Task qeydiyyatı addımında kateqoriyanın seçilməsi
+2020-07-3 üçün addımların:::::::::::
+1. qeydiyyat olunmuş task-ların siyahısını göstərmək
+

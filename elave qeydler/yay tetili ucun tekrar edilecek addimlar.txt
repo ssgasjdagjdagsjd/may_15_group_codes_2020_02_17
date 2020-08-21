@@ -1,0 +1,20 @@
+tətildə bu linkdə olan məlumatlara baxmaq
+və keçdiyimiz dərslərin video linklərinə
+mümkün qədər baxmaq və təkrar etmək.
+https://mega.nz/file/024VyYoR#D_TuvaVLalO2NJfF0gMr9S3LMYXDGR-bY2gFX2dutvA
+
+Bu linkdə olan dokumenti oxuyub təkrar etmək.
+https://mega.nz/file/p6ZBRKJR#yLuOpnI9Ropa8Z5CRswvYFidqKjYc_TYIAuoCRMK9GI
+
+https://www.geeksforgeeks.org/how-to-create-a-rest-api-using-java-spring-boot/
+https://www.geeksforgeeks.org/how-to-create-a-basic-application-in-java-spring-boot/?ref=rp
+https://www.geeksforgeeks.org/spring-boot-how-to-access-database-using-spring-data-jpa/?ref=rp
+https://www.geeksforgeeks.org/singleton-and-prototype-bean-scopes-in-java-spring/?ref=rp
+https://www.geeksforgeeks.org/spring-dependency-injection-with-example/?ref=rp
+https://howtodoinjava.com/spring-boot/spring-boot-tutorial-with-hello-world-example/
+https://www.springboottutorial.com/creating-rest-service-with-spring-boot
+https://www.springboottutorial.com/securing-rest-services-with-spring-boot-starter-security
+
+Bu linklərdə  olan məqaləni diqqətli oxuyub olduğu kimi tətbiq etmək 
+və run olmasınnan dəqiq əmin olmaq
+
