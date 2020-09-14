@@ -40,7 +40,7 @@ public class OrderController {
 	}
 	
 	
-	
+	// 8085/orders/username/ferid  
 	@GetMapping(path="/username/{username}")
 	public List<Order> findAllByUsername(@PathVariable(name="username")String username) { 
 		return orderDAO.findAllByUsername(username);
