@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.yalizada.shopping.model.ProductCategory;
 
+@CrossOrigin("*")
  
 public interface ProductCategoryDAO extends JpaRepository<ProductCategory, Long> {
 }

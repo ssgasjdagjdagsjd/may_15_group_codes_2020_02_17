@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yalizada.shopping.model.Product;
  
+
+@CrossOrigin("*")
 public interface ProductDAO extends JpaRepository<Product, Long> {
 	 
 	
