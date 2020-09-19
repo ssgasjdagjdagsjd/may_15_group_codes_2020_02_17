@@ -1,10 +1,10 @@
-package az.developia.shopmay15;
+package com.yalizada.shopping;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ShopMay15ApplicationTests {
+class ShoppingApplicationTests {
 
 	@Test
 	void contextLoads() {

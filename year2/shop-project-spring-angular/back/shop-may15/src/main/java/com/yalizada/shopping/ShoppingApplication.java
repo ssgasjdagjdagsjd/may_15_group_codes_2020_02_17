@@ -1,13 +1,13 @@
-package az.developia.shopmay15;
+package com.yalizada.shopping;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShopMay15Application {
+public class ShoppingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShopMay15Application.class, args);
+		SpringApplication.run(ShoppingApplication.class, args);
 	}
 
 }
