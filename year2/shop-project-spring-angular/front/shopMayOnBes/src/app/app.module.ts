@@ -17,7 +17,8 @@ import { SettingsComponent } from './component/settings/settings.component';
 import { SaleManagerComponent } from './component/sale-manager/sale-manager.component';
  
 import { ChequePrintPageComponent } from './component/cheque-print-page/cheque-print-page.component';
-
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,9 @@ import { ChequePrintPageComponent } from './component/cheque-print-page/cheque-p
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
