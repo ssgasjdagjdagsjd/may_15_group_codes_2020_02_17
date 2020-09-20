@@ -20,6 +20,9 @@ import { ChequePrintPageComponent } from './component/cheque-print-page/cheque-p
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { InterceptorService } from './service/interceptor.service';
+import { AgGridModule } from 'ag-grid-angular';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,8 @@ import { InterceptorService } from './service/interceptor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
 

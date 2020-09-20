@@ -26,3 +26,13 @@ export class ProductServiceModel{
 export class Embedded{
     public productCategories:ProductCategory[]=[];
 }
+
+
+export class ProductListServiceModel{
+    public _embedded:EmbeddedProduct;
+
+}
+export class EmbeddedProduct{
+    public products:Product[]=[];
+}
+
