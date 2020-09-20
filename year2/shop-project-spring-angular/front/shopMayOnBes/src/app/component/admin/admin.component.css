@@ -1,0 +1,11 @@
+#categories{
+    margin: 0;
+    padding: 0;
+
+}
+
+#categories>li:hover{
+    
+    background-color: aquamarine;
+    cursor: pointer;
+}

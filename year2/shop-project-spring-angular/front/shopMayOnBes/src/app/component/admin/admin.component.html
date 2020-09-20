@@ -1,1 +1,26 @@
-<p>admin works!</p>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-4">
+<ul style="list-style: none;" id="categories">
+<li *ngFor="let category of categories" (click)="categorySelected(category)">
+{{category.categoryName}}
+</li>
+</ul>
+    </div>
+    <div class="col-sm-8">
+        <ul style="list-style: none;" id="categories">
+            <li *ngFor="let category of categories" (click)="categorySelected(category)">
+            {{category.categoryName}}
+            </li>
+            </ul>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-8">.col-sm-8</div>
+  </div>
+
+  
+</div>
