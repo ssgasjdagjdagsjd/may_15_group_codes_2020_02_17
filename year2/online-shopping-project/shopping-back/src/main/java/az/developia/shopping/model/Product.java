@@ -25,10 +25,10 @@ private Integer id;
 	@Length(max=20,min=3,message="mehsulun adi 3 vı 20 arasinda ola biler")
 	@NotNull
 private String name;
-@Column(columnDefinition="decimal(10,2)")
+@Column(columnDefinition="decimal(10,2)")// misal 5.40
 @NotNull
-@Max(value=1000,message="qiymet minimum 0 olar")
-@Min(value=0,message="qiymet maksimum 100 oler")
+@Max(value=1000,message="qiymet maksimum 1000 oler")
+@Min(value=0,message="qiymet minimum 0 olar")
 private Double price;
 
 private String image;
